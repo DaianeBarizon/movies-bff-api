@@ -19,9 +19,9 @@ export const Header =  (props: Props) => {
 
     movies(options).then((data) => console.log('api', data));
 
-    const apiImdb = imdb.get({name: 'The Toxic Avenger'}, {apiKey: 'foo', timeout: 30000}).then((data) => console.log('aqui', data)).catch((erro) => console.log('error', erro));
+    /* const apiImdb = imdb.get({name: 'The Toxic Avenger'}, {apiKey: 'foo', timeout: 30000}).then((data) => console.log('aqui', data)).catch((erro) => console.log('error', erro));
  
-    console.log('apiImdb', apiImdb)
+    console.log('apiImdb', apiImdb) */
 
     return (
         <HeaderWrapper>
