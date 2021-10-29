@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from './Box';","map":{"version":3,"sources":["/home/daianebarizon/Repositories/popcorn2/popcorn-time-site/components/Box/index.ts"],"names":[],"mappings":"AAAA,cAAc,OAAd","sourcesContent":["export * from './Box';\n"]},"metadata":{},"sourceType":"module"}
