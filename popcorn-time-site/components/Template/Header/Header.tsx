@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from '../../Text';
 import { HeaderWrapper } from './styles';
 import { Button } from '../../Button';
 import { movies } from 'popcorntime';
-import imdb from 'imdb-api'
+import * as imdb from 'imdb-api';
 
 interface Props {}
 
@@ -19,9 +19,23 @@ export const Header =  (props: Props) => {
 
     movies(options).then((data) => console.log('api', data));
 
-    /* const apiImdb = imdb.get({name: 'The Toxic Avenger'}, {apiKey: 'foo', timeout: 30000}).then((data) => console.log('aqui', data)).catch((erro) => console.log('error', erro));
- 
-    console.log('apiImdb', apiImdb) */
+    const [state, setState] = useState({movie: undefined, error: ""})
+
+    useEffect(() => {
+        const teste = async () => {
+            try {
+                console.log('entrou aqui')
+                const results = await imdb.get({name: 'The Toxic Avenger'}, {apiKey: '748710ca', timeout: 30000}).then(console.log).catch(console.log);
+                console.log('results1', results)
+                setState({movie: results, error: ""});
+            } catch (e) {
+                setState({movie: undefined, error: e.message});
+            }
+        }
+        teste();
+    }, [])
+
+    console.log('results2', state.movie)
 
     return (
         <HeaderWrapper>
